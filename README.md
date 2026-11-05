@@ -6,8 +6,6 @@
 
 **[Read the paper (PDF)](paper.pdf) · [中文版（PDF）](paper_zh.pdf) · [LaTeX source](paper.tex) · [中文源文件](paper_zh.tex)**
 
-**Status: public working draft.** No Zenodo DOI or versioned release yet; the formal release will follow. Comments and corrections are welcome at the address above.
-
 Fourth paper in the human-referential fitting-theory program (AGI 人本拟合论). A conceptual-engineering paper stating and defending the unbundling postulate: **artificial intelligence and the machine heart (机器之心 / machine mind) are two different goals**, the difference is teleological, not metaphysical, and no transfer of progress is licensed between them.
 
 ## What the paper does
