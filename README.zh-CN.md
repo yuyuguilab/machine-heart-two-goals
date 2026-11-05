@@ -25,6 +25,18 @@ AGI 人本拟合论纲领第四篇。一篇概念工程论文：陈述并辩护�
 
 > 余玉桂．《两个不同的目标：机器之心与人工智能的概念解绑》（Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence）．v1.0.0．Zenodo，2026．doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048)（概念 DOI：10.5281/zenodo.23969047）．
 
+```bibtex
+@article{yu2026two,
+  title   = {Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence},
+  author  = {Yu, Yugui},
+  year    = {2026},
+  journal = {Zenodo},
+  version = {v1.0.0},
+  doi     = {10.5281/zenodo.23969048},
+  url     = {https://doi.org/10.5281/zenodo.23969048}
+}
+```
+
 本文把前三篇一直在预设的公理挑明：边界三句（拟合功能性人格结构／永不拟合现象状态／永不授予人格地位）就是解绑在理论内部的形态。
 
 ## 编译

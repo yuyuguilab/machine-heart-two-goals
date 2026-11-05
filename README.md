@@ -12,6 +12,18 @@ Fourth paper in the human-referential fitting-theory program (AGI 人本拟合�
 
 > Yugui Yu. *Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence*（两个不同的目标：机器之心与人工智能的概念解绑）. **v1.0.0.** Zenodo, 2026. doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048) (concept DOI: 10.5281/zenodo.23969047).
 
+```bibtex
+@article{yu2026two,
+  title   = {Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence},
+  author  = {Yu, Yugui},
+  year    = {2026},
+  journal = {Zenodo},
+  version = {v1.0.0},
+  doi     = {10.5281/zenodo.23969048},
+  url     = {https://doi.org/10.5281/zenodo.23969048}
+}
+```
+
 ## What the paper does
 
 1. **Genealogy** — the two goals formed and institutionalized independently (Turing 1950's bracket; Dartmouth's "simulate"; machine consciousness as a separate program since 2003 with its own journals, society, and normative agenda; the 2022–2026 dissociation wave).
