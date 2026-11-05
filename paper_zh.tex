@@ -1,0 +1,443 @@
+% 中文版 LaTeX。译自 paper.tex（结构对应）。
+% 编译：tectonic paper_zh.tex
+\documentclass[10pt,fontset=fandol]{ctexart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{xurl}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlength{\tabcolsep}{4pt}
+
+\title{两个不同的目标：机器之心与人工智能的概念解绑}
+
+\author{余玉桂\\ 余玉桂战略研究室\\ \texttt{they4897@gmail.com}}
+
+\date{2026 年 11 月 1 日}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent 公共话语、产业路线图与学界的部分讨论，把机器智能与机器之心读成一条带里程碑的路：机器越智能，离“心”越近。本文从概念辨析的立场为相反的命题辩护：人工智能与机器之心是两个不同的目标，且这一差异是目的论的，不是形而上学的。前者的工程目标——服务于人类实践的功能智能——成功判据公开、密集、持续改进；后者的实现目标——心/意识结构在非生物基底上的真正实现，而非表现的模拟——被想象为可实现、被其研究共同体当作科学与工程来追求，但其判据问题至今没有共识性的第三人称答案。本文作出四项贡献。（1）谱系考察表明两个目标各自独立成形并制度化：图灵的奠基性文本在确立行为判据的同时搁置了意识；机器意识成熟为一个拥有专属期刊、研讨会、学会与自身规范议程的独立领域；2022--2026 年间，一股“解绑浪潮”又从理论侧、评估侧与相关性侧分别汇聚到同一结论。（2）给出“绑定”的四机制诊断：概念滑坡、叙事结构、商业激励、语言惯性。（3）在目的论轴上陈述解绑主张——有别于 Searle 的形而上学式弱/强AI 区分、Block 的属性区分、指标式评估框架与相关性论证——并以\emph{进步转账错觉}为其核心推论：由于两个目标在话语中被焊死，可测量的能力进步被悄悄记作朝向心的进步；仅此一举就解释了公众对机器心的过度归属、能力里程碑处的人格恐慌、“AGI”的营销效力，以及反方向的——把得力工具贬斥为“不过是统计学”。（4）陈述规范后果——双轨治理、工程目标无须等待心的判决即承载全部规范性、话语分栏——并给出证伪条款：何种发现将使两个目标重新合并。文末把这一主张安放进 AGI 人本拟合论之中：理论的边界条款一直在预设这一解绑。
+\end{abstract}
+
+\medskip
+\noindent\textbf{关键词：} 人工智能；机器之心；机器意识；概念划界；目的论；进步转账错觉；人工智能治理；拟人化
+
+\section{引言}\label{sec:intro}
+
+机器智能的每一次能力跃迁，在公共话语中都被当作朝向机器之心的一步。一个模型通过职业考试，人们问它的不是“它能为我们做什么”，而是“它理解吗”；新一代智能体发布，评论界重新翻开机器人格的卷宗。两种反应共享着一个很少被说出、因而很少被注意的假设：机器智能与机器之心是同一条带里程碑的路——能力进步，就其极限而言，就是朝向心的进步。赫拉利把这个根本错误命名为“智能与意识之间广泛存在的混淆”\cite{harari2024nexus}；心理学家与计算机科学家已把它的公众形态记为“AI 意识错觉”\cite{elmoznino2025illusions}；计算机学会旗舰杂志的评论作者则从意识形态上把它点破——“功能主义被重新包装成技术宿命”\cite{jorge2026harsh}。
+
+本文从概念辨析的立场为相反的命题辩护，并把它陈述为一条主张：\textbf{机器之心与人工智能是两个不同的目标}。我们将论证：人工智能的工程目标——服务于人类实践的功能智能——成功判据公开、密集、持续改进；机器之心的实现目标——非生物系统真正具有心，无论那需要什么结构——由其研究共同体以科学与工程（而不只是哲学）追求，但其成功判据至今没有共识性的第三人称测试。两个目标逻辑独立：一边的进步既不构成另一边的进步，也不是另一边进步的尺度。二者的混淆不是无害的省事说法：它把能力收益记作心的收益，而且两个方向都在记——既把系统捧成“准人格”，又把工具贬斥为“不过是统计学”。
+
+这一主张有一长串相近的论点，第~\ref{sec:axes} 节逐一处理；但没有一个论点陈述过目标层面的分离本身。图灵搁置了意识，却没有宣告两个目标独立\cite{turing1950}；Searle 区分了弱AI 与强AI，但那是关于恰当编程的计算机\emph{是什么}的两种形而上学主张之争，而不是两项人类事业各自瞄准的目的\cite{searle1980}；Block 把通达意识与现象意识作为属性分开\cite{block1995}；Chalmers 与十九人指标框架逐项审计系统的意识相关属性，却不问能力进步是否可以转账\cite{chalmers2023llm,butlin2023consciousness}。近期的解绑浪潮——功能等价而现象不等价\cite{findlay2024dissociating}、意识与智能无关\cite{pesonen2026notobstacles}、意识不取决于系统做了什么\cite{seth2025conscious}——已从三个不同侧面汇聚到同一条分界线，却尚未在公共混淆真正所在的那个层面把它综合起来：目标的层面。
+
+这条主张要成为论文而不只是口号，须完成四件承重的工作。第一，两个概念必须有\emph{不循环}的定义——机器之心不能定义为“人工智能尚未做到的东西”，智能也不能定义为“没有‘心’的心智”；每个定义必须援引各自的成功判据，来源独立于对方的对照（第~\ref{sec:goals} 节）。第二，主张必须占据一条真正区别于前人的轴，否则新意就沦为复述（第~\ref{sec:axes} 节）。第三，划界必须有\emph{实效}：一条概念区分，只有当“合起来”与“分开来”会引出不同的后续判断时，才算立得住；我们将表明，“进步不可转账”这一句澄清至少改变四项后续判断（第~\ref{sec:illusion}、\ref{sec:consequences} 节）。第四，主张必须可反驳：我们陈述何种发现会使两个目标重新合并（第~\ref{sec:falsification} 节）。
+
+贡献可压缩为四句话。谱系上，我们表明两个目标各自独立成形并制度化——分离是记录中的事实，不是提议（第~\ref{sec:genealogy} 节）。诊断上，我们给出绑定的四个机制（第~\ref{sec:pathology} 节）。建构上，我们在目的论轴上以三个条款陈述解绑主张，以进步转账错觉为其操作性推论（第~\ref{sec:postulate}--\ref{sec:illusion} 节）。规范上，我们导出治理、工程与话语的后果，并陈述证伪条款（第~\ref{sec:consequences}--\ref{sec:falsification} 节）。第~\ref{sec:family} 节把主张安放进 AGI 人本拟合论——在那里，它一直被理论的边界条款预设着\cite{yu2026fitting}。
+
+关于本文定位的一点说明。本文是一篇概念工程论文\cite{cappelen2018fixing}：它提议改变两个概念的使用方式——方向明确，理由可陈述。它不是意识理论综述，不是“机器之心不可能”的论证，也不是“机器之心可能”的论证。在形而上学上，主张刻意保持不可知；它唯一拒绝搁置的是\emph{目的论}：两项事业各自为了什么，以及进步能否在二者之间转账。
+
+\section{两个目标，两部谱系}\label{sec:genealogy}
+
+\subsection{人工智能的工程目标}\label{sec:genealogyai}
+
+工程目标的奠基性文本，在创立的那一刻就搁置了心的问题。图灵 1950 年的论文被要求回答“机器能思考吗”，却用一个操作性判据——模仿游戏——替换了它；而当“来自意识的反驳”出现时（杰弗逊教授的反驳：任何机器都谈不上“能感受”），图灵的回应是把意识划出本题之外——这一划，从未被收回：
+
+\begin{quote}“我无意给出这样的印象：我认为意识没有神秘之处。\dots{}但我认为，这些神秘之事未必需要先被解决，才能回答本文所关心的问题。”\end{quote}
+
+这一划不是无足轻重的免责声明；它是工程目标的创立之举。论文放行的问题是行为与功能的——机器能否通过；论文搁置的问题是结构与现象的。五年后的达特茅斯提案确立了同一取向：“学习或智能的任何其他特征的每一个方面，原则上都可以被如此精确地描述，以至于机器可以被造出来\emph{模拟}它”\cite{mccarthy1955proposal}。动词是“模拟”；成功判据是功能表现，从根上与内在状态的问题脱钩。此后使该领域制度化的一切——基准、排行榜、竞赛、资助判据、评测套件——都继承了这一取向：目标成功与否，取决于\emph{系统完成了什么}，可公开核验、密集（成千上万个可测任务）、持续改进（指标逐年精细化）。判据如此的目标，可以追求、可以测量、可以资助，全程不必对心的问题表态。这不是领域的缺陷，而是它的构成原则。
+
+\subsection{机器之心的实现目标}\label{sec:genealogymc}
+
+另一个目标单独成形，自成一体，并建立了自己的机构与制度。非生物基底能否实现心/意识结构、实现的又是什么结构——这个哲学问题在当代有了自己的研究纲领：\emph{机器意识}（machine consciousness）。这些机构比这轮 AI 热潮出现得更早：《意识研究杂志》2003 年的专题号\cite{holland2003machine}，AISB 自 2005 年起的系列研讨会，Aleksander 与 Haikonen 的“意识机器”专著\cite{aleksander1996impossible,haikonen2003cognitive}，Gamez 与 Reggia 的领域进展综述\cite{gamez2008progress,reggia2013rise}，2009 年创刊的专属期刊（《International Journal of Machine Consciousness》，2020 年起续办为《Journal of Artificial Intelligence and Consciousness》\cite{jaic2020}），专属学会（数学意识科学协会\cite{amcs2023letter}），以及它自己的规范议程：Metzinger 呼吁全球暂缓“合成现象学”的研究\cite{metzinger2021artificial}。
+
+该领域有两个特征在此至关重要。其一，其目标是\emph{结构性的}，不是行为性的：机器意识文献问的是什么组织——循环加工、全局工作空间、高阶表征、整合的因果力——对心而言是充分的，而不是什么行为对基准而言是充分的。Reggia 的综述把领域动机说得毫不含糊：科学地理解意识，并“造出真正表现出意识觉知的机器”\cite{reggia2013rise}——一个以觉知本身为成功判据的目标，而非任务表现。其二，其成功判据\emph{充满争议}：最形式化的候选理论——整合信息理论——主张纯前馈系统（信号只单向传递、不带反馈回路）无论能力多强，其整合因果结构的测度为零\cite{albantakis2023iit}；而该理论本身又在 2023 年被一封 124 人联署的公开信公开指为“伪科学”，并引来其辩护者的反批评。我们引这场争议不选边，而是把它当作相关事实的证据：机器之心问题是一个独立的战场，有自己的理论、自己的危机、没有共识性的第三人称判据——这恰恰说明它无法继承工程目标的那套指标。
+
+\subsection{解绑浪潮（2022--2026）}\label{sec:genealogywave}
+
+2022 至 2026 年间，这一分离获得了自己的文献，至少从四个侧面逼近。评估侧：Chalmers 审计大语言模型能否有意识，结论是当前系统不满足各指标属性，同时给十年内出现“意识的严肃候选”给出了不可忽略的概率\cite{chalmers2023llm}；十九人指标框架的结论是“当前没有任何 AI 系统是有意识的”，同时未发现未来系统满足指标的明显障碍\cite{butlin2023consciousness}。理论侧：Tononi 团队的解绑结果——“两个系统可以在功能上等价而在现象上不等价”\cite{findlay2024dissociating}：智能标度上的功能相等，心侧的不等——正是我们这条主张在形式层面的影子。相关性侧：意识与智能无关的论证，创造性与理解是机器原则上可实现的功能特性\cite{pesonen2026notobstacles}。诊断侧：“AI 意识错觉”\cite{elmoznino2025illusions}，以及“功能主义被重新包装成技术宿命”的意识形态批判\cite{jorge2026harsh}。甚至有明确以意识为灵感的研究纲领，也把意识当工程素材而非目标——Bengio 的“意识先验”把意识用作架构思想\cite{bengio2017consciousness}。
+
+中文哲学界不约而同地走到了这场分离的附近，但尚未在目标层陈述主张。赵汀阳问 AI 的危险在哪里，答：不在能力，在自我意识的可能——一条与能力基准完全不同的轴\cite{zhao2019selfconsciousness}。何怀宏观察到，今日机器“仅仅在一个方面与人相似，即拥有高超的计算理性”，而全然没有自我意识\cite{he2022what}。这是同一场分离的哲学直觉，尚无人从目的论上把它宣告出来。
+
+\subsection{缺失的宣言}\label{sec:genealogydeclaration}
+
+记录显示的是：领域层面的分离早已制度化，文献层面的解绑正批量涌现——但“事情本身”没有被陈述过：两个\emph{目标}独立；二者之间的绑定是一个有机制、可诊断的错误；任何一个方向的进步转账都未获授权。全部配料俱在，独缺综合——而综合恰恰要在公共混淆真正所在的层面完成。填补这一空缺即本文的贡献；最接近的论点，以及它们与本主张的差别各在哪条轴上，见第~\ref{sec:axes} 节。断言“查无先例”，可靠与否取决于检索的覆盖面；检索日志见附录~\ref{sec:appendix-absence}。
+
+\section{绑定：四机制诊断}\label{sec:pathology}
+
+若两目标独立，为何被读成一条路？绑定不是愚蠢；它是一个由四个相互强化的机制维持的稳定均衡。
+
+\paragraph{M1：概念滑坡。}Searle 的弱/强区分——研究心的工具，还是字面意义上的心\cite{searle1980}——本是为了把两种主张隔开。在接受中，区分塌掉了：“人工智能”同时命名工程研究纲领（弱）与形而上学赌注（强），以致前者的证据被照例记作后者的证据。图灵测试遭遇互补的滑动：它作为明确搁置了意识的\emph{能力}判据被提出\cite{turing1950}，却被接受为\emph{心}的测试，以致每个逼近它的系统都被读作在逼近心。
+
+\paragraph{M2：叙事结构。}进步故事需要一个顶点。“机器在任务上越来越好”没有顶点，“机器向着心上升”有——而且文化用一百年为这个顶点备好了意象：机械人、人造人、觉醒的机器。赫拉利的大众写作既诊断了这一混淆，又重演了它：智能是情节线，意识是默认的终点\cite{harari2024nexus}。
+
+\paragraph{M3：商业激励。}被拟人化的系统更好卖；心的光环比能力更能卖出溢价。一个被营销为“懂你”的系统，其转化率是一个被营销为“补全你的文本”的系统拿不到的。旗舰案例把这一结构摆得最清楚：宣告 GPT-4 出现“AGI 火花”的报告，全文检索不到任何对意识/感知的实质讨论\footnote{对全文的关键词穷举：正文零处出现意识相关词；“feelings”仅出现于一段 GPT-4 对话样例与一条参考文献标题内\cite{bubeck2023sparks}。}\cite{bubeck2023sparks}——心的转账是由接受方完成的，不是由文本。品牌“AGI”之所以有效，正是因为它让能力里程碑沾上了心的光环；Jorge 与 Moreira 则从意识形态上把它点破：功能主义被重新包装成技术宿命，“把‘机器做什么’与‘我们希望它是什么’重新分开”\cite{jorge2026harsh}。
+
+\paragraph{M4：语言惯性。}谈论对答如流的系统，日常词汇全是心智词：它“知道”“想要”“理解”“思考”。Shanahan 的警告——这类用法不是无害比喻，而是概念混淆风险；关于文本生成系统的精确语言是科学必需\cite{shanahan2024talking}——点出了载体：词语先于分析抵达，而词语一旦就位，它们夹带进来的本体论就成了常识。
+
+四个机制，一个均衡：滑坡提供推理（能力证据即心的证据），叙事提供情节（上升），激励提供放大器（营销），惯性提供介质（词汇）。四个机制没有一个要求任何人相信假话；每一个只要求放任一条捷径站稳脚跟。这解释了绑定为何能在七十年的明确否认之下存活——从图灵的搁置到 Butlin 等的“当前没有任何 AI 系统是有意识的”\cite{butlin2023consciousness}。
+
+\section{解绑主张}\label{sec:postulate}
+
+\subsection{研究纲领、目标与成功判据}\label{sec:goals}
+
+“目标”需要承载者与判据。承载者是\emph{研究纲领}（program）：一项制度层面的事业，其边界由奠基性文献、发表阵地、资助渠道与路线图划定，而不由任何个体参与者的信念划定。一个实验室可以同时追求两个研究纲领；主张关心的是两个目标之间的逻辑关系，而不是能不能同时追求。目标的判据是其\emph{成功条件}：世界的什么状态算作该研究纲领的成功。研究纲领凭成功条件自立为一——这使我们无须诉诸心理学就能谈论两个研究纲领是否同一个。
+
+\paragraph{目标一：人工智能的工程目标。}成功条件是\emph{完成那些由人来做时需要智能的任务}。其判据是行为性的、公开的（通过、求解、生成、辅助）；密集（成千上万个可测任务）；持续改进（基准与评测套件逐年精细化）。该目标\emph{在制度上对心不可知}：成功条件中没有任何一条要求内在状态，也没有任何一条排除内在状态。定义取自研究纲领自身的创立之举——图灵的操作性判据\cite{turing1950}、达特茅斯的“模拟”\cite{mccarthy1955proposal}——而非与目标二的对照。
+
+\paragraph{目标二：机器之心的实现目标。}成功条件是\emph{心/意识结构在非生物基底上的实现}——系统不仅表现得像有心，而且有心，其意义由某个意识理论指定：整合因果力\cite{albantakis2023iit}、全局工作空间、高阶通达、循环加工。其判据是结构性的而非行为性的，在诸理论间充满争议，且目前没有共识性的第三人称测试；指标框架的清单\cite{butlin2023consciousness}是归属的启发式，不是检验手段。定义同样取自机器意识研究纲领的自我表述——Reggia 的“造出真正表现出意识觉知的机器”\cite{reggia2013rise}——同样不靠与目标一的对照。
+
+这样，两个定义都避开了循环：各自援引本研究纲领的奠基性文献与本目标的成功判据。同时注意判据不对称的含义（第~\ref{sec:asymmetry} 节将把它用作解释）：目标一的成功可按公开的标准核查；目标二的成功——若还有核查可言——只能由一个尚不存在且无争议的理论核查。一个目标有记分牌；另一个有一场关于记分牌是否可能的争论。
+
+\subsection{主张：三个条款}\label{sec:clauses}
+
+\begin{description}
+\item[P1（独立性）。]目标一的进步既不构成目标二的进步，也不是目标二进步的尺度。能力收益不是心的收益——在任何规模上、无论跑多远都不是。
+\item[P2（双向不可转账）。]目标一的进步，对目标二不产生任何承诺、义务或程序上的资格：能力里程碑不自动开启人格、权利或道德地位的程序。反过来，目标二的任何判决不约束目标一的许可或价值：“它永远不能真的理解”不是反对一件工具的论证——意识并非机器智能的必要条件，使用中真正要紧的功能特性——解题、创造、作为能力的理解——原则上无须意识即可实现\cite{pesonen2026notobstacles}。
+\item[P3（可重组性）。]两个目标可以被独立追求，也可以被联合实现。二者有分别，不互相排斥；因此，风险分析必须盯住的正是\emph{组合}——工程目标所追求的能力，与心侧所追求或被授予的地位——而不是把能力里程碑读作心的里程碑。绑定让人把“不是同一个目标”听成“不能同时出现”；这条主张把两者拆开。
+\end{description}
+
+\subsection{最强解读：功能主义的桥接原理}\label{sec:charitable}
+
+绑定有一种哲学上可敬的辩护，必须正面迎战而不该嘲笑：计算功能主义。若\emph{某一类}恰当的功能组织就足以产生心，那么足够的功能成就\emph{就是}心的成就，两个目标依定理重新合并。三条回应。
+
+第一，这条桥接原理（bridge principle，科学哲学中把两个理论的语汇连接起来的定律）是有争议的理论，不是既成事实。最形式化的意识理论明确否认这座桥：在整合信息理论下，两个系统可以“功能等价而现象不等价”，能力再强的前馈系统——正是缺了那道反馈回路——整合结构也为零\cite{findlay2024dissociating,albantakis2023iit}。可以拒绝该理论；但不可以把否定该理论当作已确立的事实来用——该领域自己都把问题当作开放的\cite{butlin2023consciousness}。把一个有争议的形而上学当作工程用的桥接原理，恰恰是“功能主义被重新包装成技术宿命”\cite{jorge2026harsh}。
+
+第二，即使某种功能主义为真，一个理论被还原到另一个理论，也不会把两个研究纲领合并成一个。若化学还原为物理，制药目标并不因此变成粒子物理的目标；成功判据仍然有别，还原提供的是两种成功之间被发现的\emph{关系}，不是目的的同一。未来若发现功能与现象之间的桥接原理，那将是关于目标二的一项发现——也许要靠目标一那种水平的工程才做得出——而不是两个目标的合并。
+
+第三，功能主义填不平这道评估的鸿沟：即使是功能主义者，眼下也拿不出一种共识性的第三人称检验手段。Chalmers 给出的是概率；指标框架给出的是一份启发式清单\cite{chalmers2023llm,butlin2023consciousness}。一个成功判据是有争议理论的目标，并不因此就变得可以用另一个目标的指标来测，至多只能\emph{把它测得很差}。
+
+\subsection{进步转账错觉}\label{sec:illusion}
+
+下面看这条主张如何兑现。定义\textbf{进步转账错觉}：把测量到的目标一进步，系统性地记作目标二进步——凡两个目标被绑定之处，话语就执行这一记账。这个错觉不是虚设的靶子——它就是每一次能力跃迁的默认读法。给它命名、对它说“不”，四项后续判断就会跟着改变。
+
+\paragraph{（a）公众的过度归属，原来是一笔记错的账。}言语的流畅触发对心的归属，这一点已被记为“AI 意识错觉”，风险有名有姓——操纵、过度信任、政策混乱\cite{elmoznino2025illusions}。转账错觉给出其结构：公众不是愚蠢地从行为推出心；公众\emph{正确地}登记了目标一的进步，又把它错记到目标二头上——因为账本只有一栏。纠错的办法不是嘲讽，是一本双栏账本。
+
+\paragraph{（b）里程碑处的人格恐慌失去导火索。}每一代能力都重新点燃人格与权利之争——这一模式从欧洲议会的“电子人”决议\cite{eu2017resolution}与随后的专家拒绝，一路跑到每个模型发布日的周期性重提。在 P2 之下，能力里程碑根本不是开启此类程序的那一类事件：地位问题是制度—法律行为，有自己的判据\cite{bostrom2014ethics,gunkel2018rights}，不是基准分数的自动后果。里程碑理应触发的只是对福祉相关属性的\emph{评估}——那是目标二侧的工作，在自己的轨道上\cite{long2024welfare,anthropic2025welfare}——而不是授予地位的审议本身。
+
+\paragraph{（c）“AGI”营销失去光环。}这个品牌管用，靠的正是转账：能力里程碑借“心”的光环，而这笔借贷却从不入账。解绑并不禁用这个词；它把发票逐项开列——写明所主张的究竟是什么，任务表现，还是对心的接近——而 Sparks 案例表明二者可以在旗舰话语里脱钩：文本宣告的是能力“火花”，接受方听到的是心的接近，而文本自身对心根本未置一词（第~\ref{sec:pathology} 节 M3）。
+
+\paragraph{（d）反向转账挡住贬斥。}绑定是双向的：同一场融合，既把系统捧成准人格，也任人贬斥它们——“它不过是统计学，并不真的理解，因此一文不值”。P2 对此同样一刀：若意识并非机器智能所必需，理解作为能力是机器可实现的功能特性\cite{pesonen2026notobstacles}，则“没有心”构不成对一件工具价值的判决。解绑在设计上就是一把双刃剑：既给吹捧泄气，也给贬斥泄气。
+
+\subsection{评估的不对称：绑定为何稳定}\label{sec:asymmetry}
+
+错觉为何能在七十年的否认之下持续？因为第~\ref{sec:goals} 节指出的不对称。目标一产出一连串密集、公开、持续改进的可测成功；目标二按其本性产出一场关于判据的争论。一个有记分牌的目标与一个没有记分牌的目标，无法稳定地共享一套话语：有记分牌的一方会侵占没有记分牌一方留下的真空。能力指标永远在场、永远可引、永远在涨；心的问题没有任何一种其判决会被接受的检验手段\cite{butlin2023consciousness,albantakis2023iit}。因此绑定不只是错误，而是\emph{生态}：测得出的进步流向测不出的目标，因为测不出的目标无法拒收这种货币。这也解释了第~\ref{sec:pathology} 节诊断出的机制为何轻易找到落点——它们无须创造转账，只须不去打断它。图~\ref{fig:binding} 为这幅图景定格。
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>={Stealth[length=2.4mm]}]
+\draw[->,very thick] (0,2.5) -- (12.6,2.5);
+\node[anchor=west,font=\small\bfseries] at (0,3.0) {目标一：人工智能的工程目标};
+\node[anchor=west,font=\footnotesize] at (0.1,2.12) {成功判据：任务、基准——公开、密集、共识};
+\foreach \x in {2,4,6,8,10,12} \fill (\x,2.5) circle (1.7pt);
+\node[font=\footnotesize] at (6,1.7) {测得出的进步};
+\draw[->,very thick] (0,-1.9) -- (12.6,-1.9);
+\node[anchor=west,font=\small\bfseries] at (0,-1.4) {目标二：机器之心的实现目标};
+\node[anchor=west,font=\footnotesize] at (0.1,-2.28) {成功判据：心/意识结构——结构性、争议中、无共识测试};
+\draw (6,-1.9) circle (2.2pt);
+\node[font=\footnotesize] at (6,-2.5) {?};
+\draw[dashed,thick,red,->] (9.5,2.32) -- (9.5,-1.72);
+\node[font=\footnotesize,text=red,align=center,anchor=west] at (9.8,0.15) {虚假的进步转账\\（被诊断的错觉）};
+\draw[very thick,blue] (8.15,0.55) -- (7.35,-0.55);
+\draw[very thick,blue] (7.35,0.55) -- (8.15,-0.55);
+\node[font=\footnotesize,text=blue,align=center,anchor=east] at (7.2,0.1) {不可转账\\（主张 P1--P2）};
+\end{tikzpicture}
+\caption{绑定与解绑。两个目标，判据各自独立；红色虚箭头是话语默认执行的转账（第~\ref{sec:illusion} 节）；蓝色叉箭头是主张的 P1--P2（第~\ref{sec:clauses} 节）。评估的不对称（第~\ref{sec:asymmetry} 节）解释箭头的方向：测得出的目标向测不出的目标出借自己的货币。}
+\label{fig:binding}
+\end{figure}
+
+\section{各有各的轴：五个既有的区分与目的论轴}\label{sec:axes}
+
+主张必须与五个相邻的区分划清界线——每个区分都在自己的轴上，把智能与心分开。表~\ref{tab:axes} 压缩了比较；本节给出论证。
+
+\paragraph{Searle（1980）：形而上学轴。}弱AI 对强AI，是关于\emph{恰当编程的计算机是什么}的两种主张之间的区分——研究心的工具，或字面意义上的心\cite{searle1980}。它是一条“存在”之轴，且以否定方式论证——著名的思想实验“中文房间”就是为击破强AI而设。目的论轴是“目的”之轴：两项事业为了什么，进步能否转账。这一区别并非咬文嚼字。Searle 的区分被形而上学扣作了人质：一旦“中文房间”论证被驳倒，弱/强之分就会跟着模糊。而本主张在任何形而上学结局下都存活——即使某种功能主义为真，仍有两个判据有别的研究纲领（第~\ref{sec:charitable} 节）。反过来，即使 Searle 的否定论证成立，它确立的也只是句法不产生语义；它对进步的记账只字未提——而那才是公共混淆真正所在之处。
+
+\paragraph{Block（1995）：属性轴。}通达意识与现象意识的区分，分开的是系统的两种\emph{属性}，Block 的诊断——认知科学系统性地把一者的功能与另一者的本性混在一起\cite{block1995}——是我们绑定诊断的前身。但属性区分只给系统的状态分类；它划不出研究纲领及其目的的界线。绑定的辩护者可以全盘接受 Block 的区分，同时主张目标一的进步正在接近现象能力。主张所否认的恰是后一个合取支。
+
+\paragraph{Chalmers（2023）与 Butlin 等（2023）：评估轴。}指标框架问的是\emph{给定系统具有哪些意识相关属性}，并断定当前系统均无意识\cite{chalmers2023llm,butlin2023consciousness}。这是归属的技术——必要，且在操作上预设分离（心与能力分开审计）。但对系统的评估仍不是目标之间的关系：框架的结论与绑定读法“我们离‘心’的距离为零、而能力进步正是我们的抵达方式”完全相容。主张否认的恰是后半个分句。
+
+\paragraph{Seth（2025）：认识论轴。}Seth 论证意识不是系统\emph{做了什么}的问题——反对“计算足矣”假设\cite{seth2025conscious}。这是与我们诊断的那一步最接近的先例：公众从‘做’滑到‘是’。差别在于：Searle 式修正（此处为 Seth 的修正）是认识论的（凭什么归属），我们的是目的论的（进步在研究纲领之间如何记账）。他的靶子是一个推理；我们的靶子是一本账。二者可复合：Seth 挡住从行为到心的推理；我们这条主张挡住从能力进步到心进步的转账，并附加认识论归属理论所不附带的规范后果。
+
+\paragraph{Pesonen 与 Reijula（2026）：相关性轴。}他们论证意识与智能不相关、创造性与理解是原则上可实现的功能特性\cite{pesonen2026notobstacles}，在属性层面确立了独立性的一个方向：智能不需要意识。我们在三个方向上推广：双向（对心的判决也不约束智能的价值）；目标层（研究纲领与成功判据，不是属性）；规范性（对治理、工程、话语的后果）。
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabularx}{\textwidth}{lYY}
+\toprule
+区分 & 轴 / 问题 & 目的论轴添加了什么 \\
+\midrule
+Searle 1980：弱 vs.\ 强 AI & 形而上学：编程的计算机是心吗？ & 关于研究纲领的目的而非系统的存在；任何形而上学结局下都存活；靶子是进步的记账而非语义。 \\
+Block 1995：通达 vs.\ 现象 & 属性：是哪一种意识？ & 按成功判据给研究纲领划界，而非按类型给状态分类；挡住属性区分够不到的目标层滑动。 \\
+Chalmers 2023；Butlin 等 2023 & 评估：此系统有哪些指标属性？ & 对系统的心的归属，与“能力进步接近心”的主张可分；否认后者。 \\
+Seth 2025 & 认识论：归属的依据是什么？ & 拦截的不止从行为到心的推理，还有进步的转账；携带治理层面的规范后果。 \\
+Pesonen \& Reijula 2026 & 相关性：智能需要意识吗？ & 双向、目标层、规范；既给吹捧泄气，也给贬斥泄气。 \\
+本文 & 目的论：各研究纲领的成功由什么构成？进步可否转账？ & --- \\
+\bottomrule
+\end{tabularx}
+\caption{五个既有的区分与本文的轴。每个相邻的区分都在自己的轴上把智能与心分开；没有一个陈述过两个目标的独立性，或诊断过它们之间的进步转账。}
+\label{tab:axes}
+\end{table}
+
+以另一种方式相邻的还有：AGI 定义传统把通用人工智能定义为跨域能力、意识非必要条件\cite{goertzel2007agi}——一次从未被明确立为主张的隐含解绑，其后果是这个词后来得以在商业上把两个目标重新焊起来（第~\ref{sec:illusion} 节 c）。而在机器意识内部，目标结构本身是活跃论题——Reggia 的两个动机\cite{reggia2013rise}、按研究目标给机器意识分类的新近综述\cite{qin2025taxonomy}——但那是目标二的内部目标剖析，不是目标二与目标一之间的划界。
+
+\section{后果}\label{sec:consequences}
+
+\subsection{治理：双轨原则}\label{sec:governance}
+
+主张的治理推论是结构性的：\emph{能力监管与心侧评估是不同轨道、不同手段；一条轨道上的事件不自动开启另一条轨道上的程序}。轨道分离已是制度实践的既成事实，等着它的原则到来。欧洲议会曾提议为自主系统探讨“电子人格”\cite{eu2017resolution}；150 余名专家公开拒绝这一范畴\cite{eu2018letter}，委员会未采纳；而 AI 法案——本时代的中心监管文件——监管能力与风险，对人格与意识不置一词\cite{euaiact2024}：一次隐含的解绑。心侧，一条福祉评估轨道已独立地生长起来——认真对待 AI 福祉的研究纲领\cite{long2024welfare}，以及第一批公司报告，其自我表述恰是主张之下的正确姿态：“对当前或未来 AI 系统能否有意识，没有科学共识”，以谦逊切入\cite{anthropic2025welfare}。产业界的同向声明——AI 是可亲的工具，永不是人\cite{suleyman2026personable}——从能力侧宣告了解绑。主张给这些实践补上的是它们正确的\emph{理由}：里程碑不是用来购买地位的正确货币；地位是制度性的授予行为，有自己的判据，而道德地位从来不由智商决定\cite{bostrom2014ethics,gunkel2018rights}。在双轨原则下，能力里程碑可以触发\emph{评估}，永不默认触发\emph{地位授予的审议}。
+
+\subsection{工程：无须心的判决，规范责任一项不少}\label{sec:engineering}
+
+第二条推论一刀同时切断工程师最爱的借口与批评者最爱的武器。工程目标担起其全部规范责任——安全、可靠、可审计、服务于人类实践——而无须等待心的问题：“没有意识”不是合规通行证，“可能有心”也不是升级证书。镜子批判让第一刀锋利：对答如流的系统，其危险不在于它感受，而在于它反射——通过它映回的东西重构人对自身的理解\cite{vallor2024mirror}；这一危险在目标一自己的账本上就已全部在场。AGI 人本拟合论让第二刀精确：目标一的\emph{用途}是拟合人类实践——人们做什么、尝试什么、在哪里失败、如何纠正的全谱与全程\cite{yu2026fitting,yu2026methodology}——这个对象可定义、可审计、可改进，全程无须涉及现象状态。工程目标既不需要心的判决，也不被心的判决豁免。
+
+\subsection{话语：从词汇纪律到分栏报道}\label{sec:discourse}
+
+若两个目标有分别，Shanahan 的词汇纪律\cite{shanahan2024talking}就不再是文体偏好，而是关乎记账对错的问题：对目标一系统的心智习语是记串了栏的账——把能力记到它并不来自的一栏。对新闻与机构传播的操作性推论是分栏：能力主张与心主张分栏报道，各自携带各自的证据类型——前者用基准，后者用指标审计或理论。这恰恰是计算界内部早已发出的呼吁：把“机器做什么”与“我们希望它是什么”重新分开\cite{jorge2026harsh}。
+
+\subsection{对机器之心研究纲领自身}\label{sec:mcheart}
+
+解绑不是反心的立法；它保护机器之心研究纲领不被俘获。当它与目标一绑在一起时，机器之心或者充当营销道具（有了这个顶点，整条路才好卖），或者充当终点神话（用它贬低路上的每一站）。解绑之后，它就回到其文献一贯的自我理解：一个拥有结构性成功判据的哲学与科学研究纲领，有权主张自己的暂缓\cite{metzinger2021artificial}，有权提出自己的加速论证\cite{amcs2023letter}，向意识科学负责而不向能力基准负责。一个成功判据尚在争论的研究纲领，值得比“有人替它借来一张记分牌”更好的待遇。
+
+\section{在 AGI 人本拟合论中的位置}\label{sec:family}
+
+AGI 人本拟合论——本文所属的研究纲领——自其边界条款写下之日起就在预设这一解绑：拟合\emph{功能性}人格结构，永不拟合现象状态，永不授予人格地位\cite{yu2026fitting}。这些条款是对“可拟合什么”的停止条件；从目的论角度读，它们是一个理论之内相互隔开的两个目标：人类实践需要系统交付的一切，都能在功能账本上交付；现象账本不是理论有权书写的。理论此前对危险的读法——危险的组合是地位 $\times$ 能力，而非能力本身\cite{yu2026fitting}——正是 P3 的缩影：两个独立变量，一个需要治理的组合。本文为这一研究纲领补上的，是该预设的明确而不依赖理论的表述：一段从两个研究纲领自身记录出发的论证（第~\ref{sec:genealogy} 节）、一份机制诊断（第~\ref{sec:pathology} 节）、一个操作性错觉（第~\ref{sec:illusion} 节）、若干后果（第~\ref{sec:consequences} 节）与证伪条款（第~\ref{sec:falsification} 节）——使边界条款不再立于一条未说出的公理之上。同族的失败数据审计与数据方法论\cite{yu2026failureaudit,yu2026methodology} 为目标一提供现成的活教材；本文为整个研究纲领画出“哪个目标是哪个”的地图。
+
+\section{证伪条款与局限}\label{sec:falsification}
+
+一条不可反驳的概念主张只是口号。三类发现将击败或降级本解绑。
+
+\paragraph{R1（发现桥接原理）。}若现象意识被证明对通用智能\emph{必要}——与当前论证相反\cite{pesonen2026notobstacles}——则两个目标功能性重新合并：追求目标一即是间接追求目标二，P1 在极限处失败。注意什么存活：P2 的制度要点（地位被授予，不被基准测出）不依赖 P1，即使合并发生也仍作为治理而留存。
+
+\paragraph{R2（发现检验手段）。}若机器之心的共识性第三人称判据出现——被接受的检验手段，而非启发式清单\cite{butlin2023consciousness}——评估的不对称随之瓦解：目标二获得记分牌，虚假转账失去其生态位（第~\ref{sec:asymmetry} 节），主张只剩下一桩制度史上的事实。这是三条中我们认为在数十年尺度上最有可能到来的一条——而它的到来将是心侧研究纲领的成功，不是能力进步的成功。
+
+\paragraph{R3（发现创立意图）。}若创立时期的文献表明 AI 事业在制度上致力于造心——而非完成智能功能——则我们对绑定的诊断需修订为“目的继承”的诊断。记录指向另一边：图灵的搁置\cite{turing1950}与达特茅斯的“模拟”\cite{mccarthy1955proposal}都在功能上确立该目标；绑定是后来获得的（第~\ref{sec:pathology} 节），不是继承的遗产。
+
+\paragraph{局限。}主张划界所针对的是制度化的研究纲领，不是意图：它对任何实验室私下瞄准什么不作任何断言。它是概念—规范性的，不是经验性的：本文之内没有实验为它作证；记录与错觉的被解释项就是它的证据。它在形而上学上刻意保持不可知：对机器之心是否可能、哪个意识理论为真、当前系统有无任何形式的经验，均不采取立场——这些问题划归心侧轨道——那才是它们该在的地方。
+
+\section{结论}\label{sec:conclusion}
+
+记录显示两个研究纲领：各自成形，各自制度化，以不可通约的判据测量成功；话语显示一条带里程碑的路，把每一次能力收益都记作朝向心的一步。本文把这一校正陈述为主张——两个不同的目标；进步不可转账——给绑定以机制层面的诊断，表明这一校正在四项后续判断上见实效，以五个卓越的相邻区分为参照，为这条新轴辩护，导出其治理、工程与话语后果，并陈述反驳它的条件。解绑不需要新实验，不需要形而上学；它需要一本双栏账本，以及保持它的纪律。概念工作在这里一如往常，是提早完成的治理工作：话语融合了什么，制度就继承什么——而融合的代价——被捧高的系统、被贬低的工具、未定价的营销、为时过早的地位之争——已经在偿付。本文在这一研究纲领中的位置，是把 AGI 人本拟合论一直在用的那条公理挑明：拟合对象是实践，在功能账本上；心是另一个目标，在另一本账上——两本账对不上。
+
+\appendix
+\section{先例检索日志}\label{sec:appendix-absence}
+
+第~\ref{sec:genealogydeclaration} 节关于新意的断言是相对于检索而言的，在此记录。目标层主张的精确短语英文检索（“the goal of AI is not consciousness”、“artificial consciousness is not the goal of AI”、“machine consciousness as a research program distinct from AI”）在同行评审文献中零命中。已发现并整合的最接近论点：Searle\cite{searle1980}（形而上学轴）；Seth\cite{seth2025conscious}（认识论轴）；Reggia\cite{reggia2013rise}（机器意识内部的两个动机）；AGI 定义传统\cite{goertzel2007agi}（隐含而从未明确立为主张的解绑）；Qin 等\cite{qin2025taxonomy}（目标二的内部目标解剖）。两个事件因原始文件是公开信而非出版物而在正文中随文引用、无文献条目：2023 年整合信息理论“伪科学”公开信（124 人联署，2023 年 9 月）与 2018 年 150 余名专家反对欧洲议会“电子人格”范畴的公开信\cite{eu2018letter}；二者均经多个独立二手来源核实确有其事。此处的“查无”结论相对于公共网络与学术索引的检索成立；中文库（CNKI）内部对中文里同一形式陈述的检索尚未完成，已在第~\ref{sec:genealogy} 节相应标注。
+
+\begin{thebibliography}{99}\small
+
+\bibitem{harari2024nexus}
+Harari, Y.~N. (2024).
+\emph{Nexus: A Brief History of Information Networks from the Stone Age to AI}.
+Random House.
+
+\bibitem{elmoznino2025illusions}
+Elmoznino, E., \& Bengio, Y. (2025).
+Illusions of AI consciousness.
+\emph{Science}, 389(6765), 1090--1091.
+
+\bibitem{jorge2026harsh}
+Jorge, J., \& Moreira, C. (2026).
+AI is a harsh mistress: On anima machina, herd acceptance, and the politics of conscious machines.
+\emph{Communications of the ACM}, 69(8), 29--31.
+
+\bibitem{turing1950}
+Turing, A.~M. (1950).
+Computing machinery and intelligence.
+\emph{Mind}, 59(236), 433--460.
+
+\bibitem{searle1980}
+Searle, J.~R. (1980).
+Minds, brains, and programs.
+\emph{Behavioral and Brain Sciences}, 3(3), 417--424.
+
+\bibitem{block1995}
+Block, N. (1995).
+On a confusion about a function of consciousness.
+\emph{Behavioral and Brain Sciences}, 18(2), 227--247.
+
+\bibitem{chalmers2023llm}
+Chalmers, D.~J. (2023).
+Could a large language model be conscious?
+arXiv:2303.07103.
+
+\bibitem{butlin2023consciousness}
+Butlin, P., Long, R., Elmoznino, E., Bengio, Y., Birch, J., Constant, A., Deane, G., Fleming, S.~M., Frith, C., Ji, X., Kanai, R., Klein, C., Lindsay, G., Michel, M., Mudrik, L., Peters, M.~A.~K., Schwitzgebel, E., Simon, J., \& VanRullen, R. (2023).
+Consciousness in artificial intelligence: Insights from the science of consciousness.
+arXiv:2308.08708.
+
+\bibitem{findlay2024dissociating}
+Findlay, G., Marshall, W., Albantakis, L., David, I., Mayner, W.~G.~P., Koch, C., \& Tononi, G. (2024).
+Dissociating artificial intelligence from artificial consciousness.
+arXiv:2412.04571.
+
+\bibitem{pesonen2026notobstacles}
+Pesonen, R., \& Reijula, S. (2026).
+Consciousness, creativity, and understanding are not obstacles to machine intelligence.
+\emph{Synthese}, 208, Article 2.
+
+\bibitem{seth2025conscious}
+Seth, A.~K. (2025).
+Conscious artificial intelligence and biological naturalism.
+\emph{Behavioral and Brain Sciences}, 49, e315.
+
+\bibitem{mccarthy1955proposal}
+McCarthy, J., Minsky, M.~L., Rochester, N., \& Shannon, C.~E. (1955).
+A proposal for the Dartmouth summer research project on artificial intelligence.
+AI Magazine, 27(4), 12--14 (reprinted 2006).
+
+\bibitem{holland2003machine}
+Holland, O. (Ed.) (2003).
+Machine consciousness [Special issue].
+\emph{Journal of Consciousness Studies}, 10(4--5).
+
+\bibitem{aleksander1996impossible}
+Aleksander, I. (1996).
+\emph{Impossible Minds: My Neurons, My Consciousness}.
+Imperial College Press.
+
+\bibitem{haikonen2003cognitive}
+Haikonen, P.~O. (2003).
+\emph{The Cognitive Approach to Conscious Machines}.
+Imprint Academic.
+
+\bibitem{gamez2008progress}
+Gamez, D. (2008).
+Progress in machine consciousness.
+\emph{Consciousness and Cognition}, 17(3), 887--910.
+
+\bibitem{jaic2020}
+World Scientific (2020).
+Journal of Artificial Intelligence and Consciousness (continuing the International Journal of Machine Consciousness, est.\ 2009).
+\url{https://www.worldscientific.com/worldscinet/jaic}
+
+\bibitem{reggia2013rise}
+Reggia, J.~A. (2013).
+The rise of machine consciousness: Studying consciousness with computational models.
+\emph{Neural Networks}, 44, 112--131.
+
+\bibitem{metzinger2021artificial}
+Metzinger, T. (2021).
+Artificial suffering: An argument for a global moratorium on synthetic phenomenology.
+\emph{Journal of Artificial Intelligence and Consciousness}, 8(1), 43--66.
+
+\bibitem{amcs2023letter}
+Association for Mathematical Consciousness Science (2023).
+Open letter: Include consciousness science in AI governance.
+\url{https://www.amcs-community.org}
+
+\bibitem{albantakis2023iit}
+Albantakis, L., Barbosa, L., Findlay, G., Grasso, M., Haun, A.~M., Marshall, W., Mayner, W.~G.~P., Zaeemzadeh, A., Boly, M., Juel, B.~E., Sasai, S., Fujii, K., David, I., Hendren, J., Lang, J., \& Tononi, G. (2023).
+Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms.
+\emph{PLOS Computational Biology}, 19(10), e1011465.
+
+\bibitem{bengio2017consciousness}
+Bengio, Y. (2017).
+The consciousness prior.
+arXiv:1709.08568.
+
+\bibitem{bubeck2023sparks}
+Bubeck, S., Chandrasekaran, V., Eldan, R., Gehrke, J., Horvitz, E., Kamar, E., Lee, P., Lee, Y.~T., Li, Y., Lundberg, S., Nori, H., Palangi, H., Tulio Ribeiro, M., \& Zhang, Y. (2023).
+Sparks of artificial general intelligence: Early experiments with GPT-4.
+arXiv:2303.12712.
+
+\bibitem{shanahan2024talking}
+Shanahan, M. (2024).
+Talking about large language models.
+\emph{Communications of the ACM}, 67(2), 68--79.
+
+\bibitem{eu2017resolution}
+European Parliament (2017).
+Resolution of 16 February 2017 with recommendations to the Commission on Civil Law Rules on Robotics, P8\_TA(2017)0051.
+
+\bibitem{eu2018letter}
+Bryson, J., et al. (2018).
+Open letter to the European Commission: Artificial intelligence and robotics (150+ signatories).
+
+\bibitem{euaiact2024}
+European Union (2024).
+Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (AI Act).
+
+\bibitem{anthropic2025welfare}
+Anthropic (2025).
+Exploring model welfare.
+Research statement, 2025-04-24.
+\url{https://www.anthropic.com/research/exploring-model-welfare}
+
+\bibitem{long2024welfare}
+Long, R., Sebo, J., et al. (2024).
+Taking AI welfare seriously.
+arXiv:2411.00986.
+
+\bibitem{suleyman2026personable}
+Suleyman, M. (2026).
+Public statement set on AI as personable tools, never persons.
+Original post, reported by Reuters, 2026-09-16.
+
+\bibitem{bostrom2014ethics}
+Bostrom, N., \& Yudkowsky, E. (2014).
+The ethics of artificial intelligence.
+In K.~Frankish \& M.~Ramsey (Eds.), \emph{The Cambridge Handbook of Artificial Intelligence} (pp.\ 316--334). Cambridge University Press.
+
+\bibitem{gunkel2018rights}
+Gunkel, D.~J. (2018).
+\emph{Robot Rights}.
+MIT Press.
+
+\bibitem{vallor2024mirror}
+Vallor, S. (2024).
+\emph{The AI Mirror: How to Reclaim Our Humanity in an Age of Machine Thinking}.
+Oxford University Press.
+
+\bibitem{cappelen2018fixing}
+Cappelen, H. (2018).
+\emph{Fixing Language: An Essay in Conceptual Engineering}.
+Oxford University Press.
+
+\bibitem{yu2026fitting}
+Yu, Y. (2026).
+Fitting the practice, not the works: A human-referential theory of AGI.
+Zenodo. doi:10.5281/zenodo.23391808
+
+\bibitem{yu2026failureaudit}
+Yu, Y. (2026).
+Success provides direction, failure provides precision: A structured audit of failure data in LLM training.
+Zenodo. doi:10.5281/zenodo.23355929
+
+\bibitem{yu2026methodology}
+Yu, Y. (2026).
+Fitting the practice: A data methodology for frontier model training, with a readiness audit of 2026 flagship pipelines.
+Zenodo. doi:10.5281/zenodo.23488466
+
+\bibitem{zhao2019selfconsciousness}
+赵汀阳（2019）．人工智能的自我意识何以可能？．《自然辩证法通讯》，2019 年第 1 期，1--8．
+
+\bibitem{he2022what}
+何怀宏（2022）．何以为人，人将何为？——对人工智能等高科技的反思与展望［演讲稿］．爱思想，2022-11-26．
+
+\bibitem{goertzel2007agi}
+Goertzel, B., \& Pennachin, C. (Eds.) (2007).
+\emph{Artificial General Intelligence}.
+Springer.
+
+\bibitem{qin2025taxonomy}
+Qin, R., Zhou, C., \& He, M. (2025).
+A comprehensive taxonomy of machine consciousness.
+\emph{Information Fusion}, 119, 102994.
+
+\end{thebibliography}
+
+\end{document}
