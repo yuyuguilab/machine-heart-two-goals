@@ -8,6 +8,10 @@
 
 Fourth paper in the human-referential fitting-theory program (AGI 人本拟合论). A conceptual-engineering paper stating and defending the unbundling postulate: **artificial intelligence and the machine heart (机器之心 / machine mind) are two different goals**, the difference is teleological, not metaphysical, and no transfer of progress is licensed between them.
 
+## Cite
+
+> Yugui Yu. *Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence*（两个不同的目标：机器之心与人工智能的概念解绑）. **v1.0.0.** Zenodo, 2026. doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048) (concept DOI: 10.5281/zenodo.23969047).
+
 ## What the paper does
 
 1. **Genealogy** — the two goals formed and institutionalized independently (Turing 1950's bracket; Dartmouth's "simulate"; machine consciousness as a separate program since 2003 with its own journals, society, and normative agenda; the 2022–2026 dissociation wave).
@@ -30,6 +34,3 @@ tectonic paper.tex      # English, 15 pp.
 tectonic paper_zh.tex   # Chinese, 12 pp.
 ```
 
-## Note
-
-The Chinese "机器人" naming critique is deliberately excluded from this paper; it is reserved for a companion blog post.
