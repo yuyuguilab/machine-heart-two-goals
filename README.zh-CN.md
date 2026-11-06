@@ -23,7 +23,7 @@ AGI 人本拟合论纲领第四篇。一篇概念工程论文：陈述并辩护�
 
 ## 引用
 
-> 余玉桂．《两个不同的目标：机器之心与人工智能的概念解绑》（Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence）．v1.0.0．Zenodo，2026．doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048)（概念 DOI：10.5281/zenodo.23969047）．
+> 余玉桂．《两个不同的目标：机器之心与人工智能的概念解绑》（Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence）．v1.0.1．Zenodo，2026．doi:[10.5281/zenodo.23969048](https://doi.org/10.5281/zenodo.23969048)（概念 DOI：10.5281/zenodo.23969047）．
 
 ```bibtex
 @article{yu2026two,
@@ -31,7 +31,7 @@ AGI 人本拟合论纲领第四篇。一篇概念工程论文：陈述并辩护�
   author  = {Yu, Yugui},
   year    = {2026},
   journal = {Zenodo},
-  version = {v1.0.0},
+  version = {v1.0.1},
   doi     = {10.5281/zenodo.23969048},
   url     = {https://doi.org/10.5281/zenodo.23969048}
 }
