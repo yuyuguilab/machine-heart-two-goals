@@ -1,0 +1,35 @@
+{
+  "title": "Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence（两个不同的目标：机器之心与人工智能的概念解绑）",
+  "version": "v1.0.2",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>Public discourse, industry roadmaps, and parts of the academy read machine intelligence and the machine mind as one road with milestones. This paper defends the opposite as a matter of conceptual hygiene: artificial intelligence and the machine heart (机器之心) are two different goals, and the difference is teleological, not metaphysical. Artificial intelligence is an engineering goal — functional intelligence in the service of human practice — whose success criteria are public, dense, and continuously improving. The machine heart is a realization goal — mind-structure genuinely instantiated in a non-biological substrate — pursued as science and engineering, yet still without a consensus third-person criterion. Four contributions: a genealogy of the two goals' independent formation; a pathology of the binding in four mechanisms (conceptual slippage, narrative structure, commercial incentive, linguistic inertia); the unbundling postulate on a teleological axis, with the progress-transfer illusion as its central corollary; and normative consequences — dual-track governance, full normativity of the AI goal without any mind verdict, and vocabulary hygiene — with explicit rejection clauses.</p><p>v1.0.2 (2026-11-11): layout fixes only — the date line removed from both editions' title blocks, and the English edition's ctex-localized headings restored to English (Abstract; Figure/Table), with the Chinese term anchors (机器之心) and bibliography original-title glosses retained. EN 15 pp / ZH 12 pp; no changes to text content or numbers.</p>",
+  "creators": [
+    {
+      "name": "Yugui Yu",
+      "affiliation": "YYG Strategy Lab"
+    }
+  ],
+  "keywords": [
+    "machine consciousness",
+    "artificial general intelligence",
+    "machine mind",
+    "conceptual hygiene",
+    "dual-track governance",
+    "human-referential fitting theory",
+    "机器之心",
+    "机器意识",
+    "概念解绑"
+  ],
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/yuyuguilab/machine-heart-two-goals",
+      "relation": "isSupplementTo",
+      "resource_type": "dataset"
+    }
+  ],
+  "notes": "Manuscript in English and Chinese editions (paper.pdf / paper_zh.pdf). Part of the human-referential fitting theory program; companion theory paper: doi:10.5281/zenodo.23391808."
+}
