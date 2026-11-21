@@ -1,5 +1,7 @@
 **English** | [简体中文](README.zh-CN.md)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23969047.svg)](https://doi.org/10.5281/zenodo.23969047)
+
 # Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence
 
 *Yugui Yu · YYG Strategy Lab · they4897@gmail.com*
@@ -10,7 +12,7 @@ Fourth paper in the human-referential fitting-theory program (AGI 人本拟合�
 
 ## Cite
 
-> Yugui Yu. *Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence*（两个不同的目标：机器之心与人工智能的概念解绑）. **v1.0.2.** Zenodo, 2026. doi:[10.5281/zenodo.24132068](https://doi.org/10.5281/zenodo.24132068) (concept DOI: 10.5281/zenodo.23969047).
+> Yugui Yu. *Two Different Goals: Dissociating the Machine Mind from Artificial Intelligence*（两个不同的目标：机器之心与人工智能的概念解绑）. **v1.0.3.** Zenodo, 2026. doi:[10.5281/zenodo.23969047](https://doi.org/10.5281/zenodo.23969047) (concept DOI; resolves to the latest version).
 
 ```bibtex
 @article{yu2026two,
@@ -18,9 +20,9 @@ Fourth paper in the human-referential fitting-theory program (AGI 人本拟合�
   author  = {Yu, Yugui},
   year    = {2026},
   journal = {Zenodo},
-  version = {v1.0.2},
-  doi     = {10.5281/zenodo.24132068},
-  url     = {https://doi.org/10.5281/zenodo.24132068}
+  version = {v1.0.3},
+  doi     = {10.5281/zenodo.23969047},
+  url     = {https://doi.org/10.5281/zenodo.23969047}
 }
 ```
 
